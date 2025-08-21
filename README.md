@@ -12,9 +12,9 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 
 - **Multi-Framework Support**  
   Out-of-the-box support for multiple deep learning frameworks, including:  
-  - PyTorch  
-  - MindSpore  
-  - LuoJiaNET  
+  - [PyTorch](https://pytorch.org/)
+  - [MindSpore](https://github.com/mindspore-ai/mindspore)  
+  - [LuoJiaNET](http://58.48.42.237/luojiaNet/home) 
 
 ## 🚀 Goals  
 - Provide a unified and standardized platform for remote sensing change detection research.  
