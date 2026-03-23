@@ -101,7 +101,8 @@ Our framework supports a wide range of public change detection benchmarks:
 
 ## 🌐 Contact
 This project is developed by the LuoJiaNET team and the Captain team at Wuhan University.
-Dr. Xiaokang Zhang (zhangxiaokang@whu.edu.cn)
+
+Please contact Dr. Xiaokang Zhang (zhangxiaokang@whu.edu.cn) if you have any questions.
 
 ## 🙏 Acknowledgement
 This project benefits from numerous prior works and publicly available datasets. We sincerely thank the open-source community for their valuable contributions to remote sensing change detection research. 
