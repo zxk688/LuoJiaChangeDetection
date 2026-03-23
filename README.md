@@ -100,7 +100,7 @@ Our framework supports a wide range of public change detection benchmarks:
 ---
 
 ## 🌐 Contact
-This project is developed by the LuoJiaNET team and the Captain team at Wuhan University.
+This project is developed by the LuoJiaNET team and the CAPTAIN team at Wuhan University.
 
 Please contact Dr. Xiaokang Zhang (zhangxiaokang@whu.edu.cn) if you have any questions.
 
