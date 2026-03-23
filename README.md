@@ -22,6 +22,29 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 - Facilitate fair comparisons and reproducibility across different models and frameworks.  
 
 
+## Usage Guide
+
+### 1. Environment Setup
+```bash
+cd LuoJiaChangeDetection
+pip install -r requirements.txt
+```
+
+### 2. Model Training
+1. Open your config file (e.g., `configs/changeformer/changeformer_levir.yml`) and set `mode: train`.
+2. Run the training command:
+```bash
+python main.py --config configs/changeformer/changeformer_levir.yml
+```
+> **Note:** Training weights will be saved to the path specified by `snapshots_dir` in the `.yml` file.
+
+### 3. Model Inference and Validation
+1. Open your config file and change `mode: test`.
+2. Run the testing command:
+```bash
+python main.py --config configs/changeformer/changeformer_levir.yml
+```
+
 ## 📌 Supported Models
 
 The current release supports a wide range of classical and state-of-the-art change detection models:
