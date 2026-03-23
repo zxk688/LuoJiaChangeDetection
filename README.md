@@ -22,7 +22,7 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 - Facilitate fair comparisons and reproducibility across different models and frameworks.  
 
 
-## Usage Guide
+## ⚙️ Usage Guide
 
 ### 1. Environment Setup
 ```bash
