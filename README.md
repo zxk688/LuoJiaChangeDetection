@@ -31,16 +31,16 @@ pip install -r requirements.txt
 ```
 
 ### 2. Model Training
-1. Open your config file (e.g., `configs/changeformer/changeformer_levir.yml`) and set `mode: train`.
-2. Run the training command:
+-  Open your config file (e.g., `configs/changeformer/changeformer_levir.yml`) and set `mode: train`.
+-  Run the training command:
 ```bash
 python main.py --config configs/changeformer/changeformer_levir.yml
 ```
 > **Note:** Training weights will be saved to the path specified by `snapshots_dir` in the `.yml` file.
 
 ### 3. Model Inference and Validation
-1. Open your config file and change `mode: test`.
-2. Run the testing command:
+-  Open your config file and change `mode: test`.
+-  Run the testing command:
 ```bash
 python main.py --config configs/changeformer/changeformer_levir.yml
 ```
