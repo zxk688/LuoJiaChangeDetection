@@ -1,4 +1,4 @@
-# Unified Multi-Framework Model Zoo for Remote Sensing Change Detection  
+# Unified Multi-Backend Model Zoo for Remote Sensing Change Detection  
 <img width="5497" height="1013" alt="logo" src="logo.png" />
 
 We are happy to announce that we are going to release a **unified model zoo** for **remote sensing change detection**.  
@@ -10,7 +10,7 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 - **Lightweight, No Third-Party Toolbox Dependency**  
   Unlike existing solutions that rely on toolboxes such as *mmsegmentation*, our model zoo is implemented in a clean and lightweight way, with no heavy external dependencies.  
 
-- **Multi-Framework Support**  
+- **Multi-Backend Support**  
   Out-of-the-box support for multiple deep learning frameworks, including:  
   - [PyTorch](https://pytorch.org/)
   - [MindSpore](https://github.com/mindspore-ai/mindspore)  
