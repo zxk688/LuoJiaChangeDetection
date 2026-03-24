@@ -23,8 +23,9 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 
 ## :fire:TODO
 - [x] Release binary CD framework
-- [ ] Release more training strategies and frameworks for diverse CD tasks 
 - [ ] Release pre-trained weights  
+- [ ] Release more training strategies and frameworks for diverse CD tasks 
+
 
 ## ⚙️ Usage Guide
 
