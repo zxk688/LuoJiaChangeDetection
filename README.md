@@ -108,4 +108,29 @@ Please contact Dr. Xiaokang Zhang (zhangxiaokang@whu.edu.cn) if you have any que
 This project benefits from numerous prior works and publicly available datasets. We sincerely thank the open-source community for their valuable contributions to remote sensing change detection research. 
 
 
+If you find this dataset useful for your research, please cite our paper:
+```
+@ARTICLE{10587034,
+  author={Yu, Weikang and Zhang, Xiaokang and Das, Samiran and Xiang Zhu, Xiao and Ghamisi, Pedram},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={MaskCD: A Remote Sensing Change Detection Network Based on Mask Classification}, 
+  year={2024},
+  volume={62},
+  number={},
+  pages={1-16},
+  keywords={Transformers;Feature extraction;Image segmentation;Decoding;Task analysis;Representation learning;Object oriented modeling;Change detection (CD);deep learning;deformable attention;mask classification (MaskCls);masked cross-attention;remote sensing (RS)},
+  doi={10.1109/TGRS.2024.3424300}}
+```
+```
+@ARTICLE{9730826,
+  author={Zhang, Xiaokang and Yu, Weikang and Pun, Man-On},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={Multilevel Deformable Attention-Aggregated Networks for Change Detection in Bitemporal Remote Sensing Imagery}, 
+  year={2022},
+  volume={60},
+  number={},
+  pages={1-18},
+  keywords={Feature extraction;Biological system modeling;Data mining;Context modeling;Remote sensing;Head;Task analysis;Change detection;deep learning (DL);multihead self-attention (SA);multiscale context;remote sensing},
+  doi={10.1109/TGRS.2022.3157721}}
 
+```
