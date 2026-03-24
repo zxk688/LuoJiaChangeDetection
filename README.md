@@ -21,6 +21,10 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 - Lower the entry barrier for new researchers and developers.  
 - Facilitate fair comparisons and reproducibility across different models and frameworks.  
 
+## :fire:TODO
+- [x] Release binary CD framework
+- [ ] Release more training strategies and diverse CD tasks 
+- [ ] Release pre-trained weights  
 
 ## ⚙️ Usage Guide
 
