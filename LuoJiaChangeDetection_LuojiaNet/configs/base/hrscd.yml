@@ -1,0 +1,9 @@
+dataset:
+    type: HRSCDDataset
+    rootdir: /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/HRSCD
+    img_folder_names: 
+      - images_2006
+      - images_2012
+      - labels_land_cover_2006
+      - labels_land_cover_2012
+      - labels_change

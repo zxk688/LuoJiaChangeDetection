@@ -1,0 +1,47 @@
+  _BASE_CONFIG_ : ./configs/base/gvlm.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: HANet
+  logfilepath: logs/hanet_gvlm/hanet_gvlm.log
+  train:
+    epochs : 100
+    batch_size : 10
+    snapshots_dir : ./checkpoints/
+    save_intervals : 10
+  eval :
+    batch_size : 10
+  test:
+    batch_size : 10
+    checkpoint : checkpoints/HANet/10.pth
+    save_path : ./results/HANet/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: CNNEncoder
+      in_channels: 3
+      base_channel: 40
+    decode_head : 
+      type: HANetDecoder
+      base_channel: 40
+    feature_interaction: 
+    prediction_head:
+      type: FCNHead
+      in_channels: 80
+      output_channels: 1
+  losses: 
+          loss_cls: 
+              type: BinaryCrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

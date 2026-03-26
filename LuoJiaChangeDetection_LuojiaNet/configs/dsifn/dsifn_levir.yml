@@ -1,0 +1,47 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : CPU
+  type : BinaryChangeDetectionFramework
+  model_name: DSIFN
+  logfilepath: logs/dsifn_levir/dsifn_levir.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/DSIFN/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/DSIFN/DSIFN_best.ckpt
+    save_path : ./results/DSIFN/levir-cd/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: VggEncoder
+    decode_head : 
+      type: CNNDecoderDeepSuper
+    feature_interaction: 
+      type: normal
+      policy: concat
+      out_indices: [0,1,2,3,4]
+    prediction_head:
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

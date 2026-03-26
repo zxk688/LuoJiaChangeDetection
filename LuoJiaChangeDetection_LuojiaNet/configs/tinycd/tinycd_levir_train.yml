@@ -1,0 +1,47 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : CPU
+  type : BinaryChangeDetectionFramework
+  model_name: TinyCD
+  logfilepath: logs/tinycd_levir/tinycd_levir.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/TinyCD/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/TinyCD/TinyCD_best.ckpt
+    save_path : ./results/TinyCD/levir-cd/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: EfficientNetEncoder
+    decode_head : 
+      type: TinyCDDecoder
+    feature_interaction: 
+      type: MixingMaskAttentionInteraction
+    prediction_head:
+      type: FCNHead
+      in_channels: 32
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

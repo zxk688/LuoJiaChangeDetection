@@ -1,0 +1,7 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: ./data/s2looking
+      img_folder_names: 
+        - Image1
+        - Image2
+        - label

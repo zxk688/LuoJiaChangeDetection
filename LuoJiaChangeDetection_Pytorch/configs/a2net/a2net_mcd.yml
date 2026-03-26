@@ -1,0 +1,42 @@
+  _BASE_CONFIG_ : ./configs/base/mcd.yml
+  mode : test
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: A2Net
+  logfilepath: logs/a2net_mcd/a2net_mcd.log
+  train:
+    epochs : 100
+    batch_size : 36
+    snapshots_dir : ./checkpoints/
+    save_intervals : 10
+  eval :
+  test:
+    batch_size : 36
+    checkpoint : checkpoints/A2Net/100.pth
+    save_path : ./results/A2Net/mcd/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: MobileNetEncoder
+    decode_head : 
+      type: A2NetDecoder
+    feature_interaction: 
+      type: TemporalFusionInteraction 
+    prediction_head:
+
+  losses: 
+          loss_cls: 
+              type: BinaryCrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

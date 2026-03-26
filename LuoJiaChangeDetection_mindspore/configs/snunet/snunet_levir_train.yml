@@ -1,0 +1,53 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : GPU
+  type : BinaryChangeDetectionFramework
+  model_name: SNUNet
+  logfilepath: logs/snunet_levir/snunet_levir.log
+  train:
+    epochs : 5
+    batch_size : 2
+    snapshots_dir : ./checkpoints/SNUNet/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/SNUNet/SNUNet_best.ckpt
+    save_path : ./results/SNUNet/levir-cd/
+  model:
+    CONNECTED: True
+    CONNECTED_Temporal: T2
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: NestedCNNEncoder
+      in_channels: 3 
+      filters: [32, 64, 128, 256, 512]
+    decode_head : 
+      type: SNUNetDecoder
+      filters: [32, 64, 128, 256, 512]
+    feature_interaction: 
+      type: normal
+      policy: concat
+      out_indices: [0,1,2,3,4]
+    prediction_head:
+      type: FCNHead
+      in_channels : 128
+      output_channels: 1
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        weight_decay: 0.0005
+
+  
+      
+        

@@ -1,0 +1,4 @@
+  dataset:
+      type: SECONDDataset
+      rootdir: data/SECOND
+      img_folder_names: [im1,im2,label1,label2]

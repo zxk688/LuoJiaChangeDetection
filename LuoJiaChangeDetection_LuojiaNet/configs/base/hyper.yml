@@ -1,0 +1,18 @@
+
+  dataset:
+      type: HyperspectralDataset
+      train_number: 500
+      patches: 5
+      band_patches: 1
+      rootdir: 
+        - /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/river_dataset/river_before.mat
+        - /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/river_dataset/river_after.mat
+        - /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/river_dataset/groundtruth.mat
+      key_names:
+        - river_before
+        - river_after
+        - lakelabel_v1
+        
+
+      
+        

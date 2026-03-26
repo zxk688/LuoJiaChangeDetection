@@ -1,0 +1,53 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : GPU
+  type : BinaryChangeDetectionFramework
+  model_name: FC_Siam_diff
+  logfilepath: logs/fc_siamdiff_levir/fc_siamdiff_levir.log
+  train:
+    epochs : 100
+    batch_size : 1
+    snapshots_dir : ./checkpoints/FC_Siam_diff/
+    save_intervals : 5
+  eval :
+    batch_size : 1
+  test:
+    batch_size : 1
+    checkpoint : checkpoints/FC_Siam_diff/30.pth
+    save_path : ./results/FC_Siam_diff/levir-cd/
+  model:
+    CONNECTED: True
+    CONNECTED_Temporal: T1T2
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: FCSiamEncoder
+      in_channels: 3
+      base_channel: 16
+    decode_head : 
+      type: FCSiamDecoder
+      base_channel: 16
+      mode : diff
+    feature_interaction: 
+      type: normal
+      policy: diff
+      out_indices: [0,1,2,3,4]
+    prediction_head:
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

@@ -1,0 +1,46 @@
+  _BASE_CONFIG_ : ./configs/base/gvlm.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: DSAMNet
+  logfilepath: logs/dsamnet_gvlm/dsamnet_gvlm.log
+  train:
+    epochs : 100
+    batch_size : 10
+    snapshots_dir : ./checkpoints/
+    save_intervals : 10
+  eval :
+    batch_size : 10
+  test:
+    batch_size : 10
+    checkpoint : checkpoints/DSAMNet/20.pth
+    save_path : ./results/DSAMNet/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: ResnetMultilevelEncoder
+    decode_head : 
+      type: DSAMNetDecoder
+      f_c: 64
+      ratio: 8
+      kernel: 7
+    feature_interaction:
+    prediction_head:
+      type: DistanceHead
+
+  losses: 
+          loss_cls: 
+              type: BinaryCrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

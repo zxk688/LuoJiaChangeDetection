@@ -1,0 +1,7 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: ./data/dsifn
+      img_folder_names: 
+        - t1
+        - t2
+        - mask

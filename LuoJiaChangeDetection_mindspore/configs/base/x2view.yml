@@ -1,0 +1,6 @@
+  dataset:
+      type: X2ViewDataset
+      rootdir: data/xview
+      img_folder_names: [A,B,label]
+      list_folder_name : list
+      

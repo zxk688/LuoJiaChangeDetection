@@ -1,0 +1,51 @@
+  _BASE_CONFIG_ : ./configs/base/gvlm.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: FDCNN
+  logfilepath: logs/fdcnn_gvlm/fdcnn_gvlm.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/FDCNN/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : /root/autodl-tmp/UCD/checkpoints/FDCNN/10.pth
+    save_path : ./results/FDCNN/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: VggEncoder
+    decode_head : 
+      type: FDCNNDecoder
+      n_class: 1
+      filters: [64,128,256,512]
+    feature_interaction: 
+      type: normal
+      policy: abs_diff
+      out_indices: [0,1,2,3]
+    prediction_head:
+      type: FCNHead
+      in_channels: 64
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.01
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

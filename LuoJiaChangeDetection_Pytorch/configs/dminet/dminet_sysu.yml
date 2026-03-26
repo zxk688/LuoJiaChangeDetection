@@ -1,0 +1,44 @@
+  _BASE_CONFIG_ : ./configs/base/sysu.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: DMINet
+  logfilepath: logs/dminet/dminet_sysu.log
+  train:
+    epochs : 100
+    batch_size : 16
+    snapshots_dir : ./checkpoints/
+    save_intervals : 1
+  eval :
+    batch_size : 16
+  test:
+    batch_size : 16
+    checkpoint : ./checkpoints/DMINet/80.pth
+    save_path : ./results/DMINet/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 2
+    backbone : 
+      type: ResnetMultilevelEncoder
+    decode_head : 
+      type: DMINetDecoder
+    feature_interaction: 
+    prediction_head:
+      type: FCNHead
+      in_channels: 64
+      output_channels: 12
+  losses: 
+          loss_cls: 
+              type: CrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

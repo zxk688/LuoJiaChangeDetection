@@ -1,0 +1,37 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : test
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: New
+  logfilepath: logs/new_levir/new_levir.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/New_model/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/New_model/New_best.ckpt
+    save_path : ./results/New/levir-cd/
+  model:
+      output_channels: 1
+      type : NewNet
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

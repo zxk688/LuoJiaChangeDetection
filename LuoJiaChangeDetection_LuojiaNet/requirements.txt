@@ -1,0 +1,8 @@
+scikit-learn
+PyYAML
+easydict
+opencv-python
+tifffile
+Pillow==9.5.0
+einops
+tqdm

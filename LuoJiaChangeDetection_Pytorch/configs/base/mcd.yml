@@ -1,0 +1,4 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: /media/lscsc/nas/xianping/ZXK/MiningCD/MCD256-locationsplittedv3new/
+      img_folder_names: [im1,im2,label]

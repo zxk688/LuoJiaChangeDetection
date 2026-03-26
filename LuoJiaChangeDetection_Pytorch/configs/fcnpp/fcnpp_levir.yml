@@ -1,0 +1,49 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: FCNPP
+  logfilepath: logs/fcnpp_levir/fcnpp_levir.log
+  train:
+    epochs : 5
+    batch_size : 4
+    snapshots_dir : ./checkpoints/
+    save_intervals : 5
+  eval :
+    batch_size : 10
+  test:
+    batch_size : 10
+    checkpoint : checkpoints/FCNPP/20.pth
+    save_path : ./results/FCNPP/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: FCNPPEncoder
+      in_channels: 3
+      DC_out: 64
+      Downmlp: [[64,128],[128,256],[256,512],[512,512]]
+    decode_head : 
+      type: FCNPPDecoder
+      bilinear: True
+      up: [64,128,256,512,1024]
+    feature_interaction: 
+    prediction_head:
+      type: FCNHead
+      in_channels: 64
+      output_channels: 1
+  losses: 
+          loss_cls: 
+              type: BinaryCrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

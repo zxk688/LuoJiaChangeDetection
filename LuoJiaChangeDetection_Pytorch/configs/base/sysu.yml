@@ -1,0 +1,7 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: ./data/sysu
+      img_folder_names: 
+        - time1
+        - time2
+        - label

@@ -1,0 +1,7 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: ./data/LEVIR-CD
+      img_folder_names: 
+        - A
+        - B
+        - label

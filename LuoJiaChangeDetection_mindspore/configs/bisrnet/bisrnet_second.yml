@@ -1,0 +1,39 @@
+  _BASE_CONFIG_ : ./configs/base/second.yml
+  mode : test
+  device : GPU
+  type : SemanticChangeDetectionFramework
+  model_name: BiSRNet
+  logfilepath: logs/bisrnet_second/bisrnet_second.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/
+    save_intervals : 3
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/BiSRNet-20_1.ckpt
+    save_path : ./results/BiSRNet/landslide/
+  model:
+    CONNECTED: True
+    CONNECTED_Temporal: T1T2
+    type: CDEncoderDecoder
+    output_channels: 7
+    backbone : 
+      type: SemanticReasoningEncoder
+    decode_head : 
+      type: BiSRNetDecoder
+    feature_interaction: 
+      type: normal 
+      policy: concat
+      out_indices: [0,1]
+    prediction_head:
+  losses: 
+          loss_cls: 
+              type: SCDLoss
+  optimizer:  
+          type: Adam
+          lr: 0.001
+
+        

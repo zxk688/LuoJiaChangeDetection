@@ -1,0 +1,9 @@
+  dataset:
+      type: X2ViewDataset
+      rootdir: /media/lscsc/nas/xianping/ZXK/SemiSupervised/SSDataset/xview
+      img_folder_names: 
+        - A
+        - B
+        - label
+      list_folder_name : list
+      

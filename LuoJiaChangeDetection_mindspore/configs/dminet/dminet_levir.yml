@@ -1,0 +1,47 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : CPU
+  type : BinaryChangeDetectionFramework
+  model_name: DMINet
+  logfilepath: logs/dminet_levir/dminet_levir.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/DMINet/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/DMINet/DMINet_best.ckpt
+    save_path : ./results/DMINet/levir-cd/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: ResnetMultilevelEncoder
+    decode_head : 
+      type: DMINetDecoder
+    feature_interaction: 
+    prediction_head:
+      type: FCNHead
+      in_channels: 64
+      output_channels: 1
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

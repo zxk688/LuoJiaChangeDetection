@@ -1,0 +1,4 @@
+  dataset:
+    type: OpenWUSU512
+    rootdir: /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/WUSU
+    cd_type: BCD

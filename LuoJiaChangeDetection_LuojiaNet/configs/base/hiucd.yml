@@ -1,0 +1,8 @@
+    dataset:
+      type: HiUCDDataset
+      rootdir: /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/HI_UCD
+      mode': train
+      img_folder_names:
+        - image/2017
+        - image/2018
+        - mask_merge/2017_2018

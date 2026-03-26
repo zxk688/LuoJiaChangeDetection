@@ -1,0 +1,4 @@
+dataset:
+    type: HTCDDataset
+    rootdir: /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/HTCD
+    img_folder_names: 

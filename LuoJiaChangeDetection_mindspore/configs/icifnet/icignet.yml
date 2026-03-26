@@ -1,0 +1,53 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : GPU
+  type : BinaryChangeDetectionFramework
+  model_name: ICIFNet
+  logfilepath: logs/icifnet_levir/icifnet_levir.log
+  train:
+    epochs : 5
+    batch_size : 4
+    snapshots_dir : ./checkpoints/
+    save_intervals : 5
+  eval :
+    batch_size : 10
+  test:
+    batch_size : 10
+    checkpoint : checkpoints/ICIFNet/10.pth
+    save_path : ./results/ICIFNet/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: DualCNNandTransEncoder
+
+    decode_head : 
+      type: ICIFDecoder
+      num_classes: 1
+      # drop_rate: 0.2
+      # conv: [64,64]
+      # up: [64,128,256]
+      # BasicConv2d: [1,128,320]
+      # decode: [64,64]
+    feature_interaction: 
+      type: CrossAttentionInteraction
+    prediction_head:
+
+
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        weight_decay: 0.0005
+
+  
+      
+        

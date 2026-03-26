@@ -1,0 +1,9 @@
+     dataset:
+        type: MultisourceDataset
+        rootdir: /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/MSOSCD
+        img_folder_names: 
+          - rgb1
+          - rgb2
+          - opt
+          - sar
+          - label

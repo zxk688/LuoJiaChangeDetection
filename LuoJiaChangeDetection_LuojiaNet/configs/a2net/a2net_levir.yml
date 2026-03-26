@@ -1,0 +1,47 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : CPU
+  type : BinaryChangeDetectionFramework
+  model_name: A2Net
+  logfilepath: logs/a2net_levir/a2net_levir.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/A2Net/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : checkpoints/A2Net/A2Net_best.ckpt
+    save_path : ./results/a2net/levir-cd/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: MobileNetEncoder
+    decode_head : 
+      type: A2NetDecoder
+      en_d: 32
+    feature_interaction: 
+      type: TemporalFusionInteraction 
+    prediction_head:
+
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

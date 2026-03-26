@@ -1,0 +1,51 @@
+  _BASE_CONFIG_ : ./configs/base/train.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: USSFCNet
+  logfilepath: logs/ussfcnet_train/ussfcnet_train.log
+  train:
+    epochs : 5
+    batch_size : 4
+    snapshots_dir : ./checkpoints/
+    save_intervals : 5
+  eval :
+    batch_size : 10
+  test:
+    batch_size : 10
+    checkpoint : checkpoints/USSFCNet/10.pth
+    save_path : ./results/USSFCNet/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: CNNAttentionEncoder
+      in_ch: 3 
+      mlp: [64,128,256,512,1024]
+    decode_head : 
+      type: CNNAttentionDecoder
+      out_ch: 1
+      mlp: [64,128,256,512,1024]
+    feature_interaction: 
+      type: normal
+      policy: sum
+      out_indices: [0,1,2,3,4]
+    prediction_head:
+      type: FCNHead
+      in_channels: 32
+      output_channels: 1
+  losses: 
+          loss_cls: 
+              type: BinaryCrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

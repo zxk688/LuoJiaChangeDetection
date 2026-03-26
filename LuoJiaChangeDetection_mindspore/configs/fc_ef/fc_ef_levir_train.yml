@@ -1,0 +1,44 @@
+  _BASE_CONFIG_ : ./configs/base/levir.yml
+  mode : train
+  device : GPU
+  type : BinaryChangeDetectionFramework
+  model_name: FC_EF
+  logfilepath: logs/fc_ef_levir/fc_ef_levir.log
+  train:
+    epochs : 100
+    batch_size : 4
+    snapshots_dir : ./checkpoints/FC_EF/
+    save_intervals : 5
+  eval :
+    batch_size : 4
+  test:
+    batch_size : 4
+    checkpoint : ./checkpoints/FC_EF/30.pth
+    save_path : ./results/FC_EF/levir-cd/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: FCEFEncoder
+      in_channels: 6 
+      base_channel: 16
+    decode_head : 
+      type: FCEFDecoder
+      base_channel: 16
+    feature_interaction: 
+    prediction_head:
+  losses: 
+          loss_cls: 
+              type: BCELoss
+  scheduler: 
+        type : PolynomialDecayLR
+        learning_rate: 0.001
+        end_learning_rate: 0.0005
+        decay_steps: 4
+        power: 0.5
+  optimizer:  
+        type: Adam
+        weight_decay: 0.0005
+
+        

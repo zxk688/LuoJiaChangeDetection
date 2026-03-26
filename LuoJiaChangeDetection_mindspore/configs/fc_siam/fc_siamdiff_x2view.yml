@@ -1,0 +1,53 @@
+  _BASE_CONFIG_ : ./configs/base/x2view.yml
+  mode : train
+  device : GPU
+  type : MulticlassChangeDetectionFramework
+  model_name: FC_Siam_diff
+  logfilepath: logs/fc_siamdiff_x2view/fc_siamdiff_x2view.log
+  train:
+    epochs : 100
+    batch_size : 8
+    snapshots_dir : ./checkpoints/
+    save_intervals : 2
+  eval :
+    batch_size : 8
+  test:
+    batch_size : 8
+    checkpoint : checkpoints/FC_Siam_diff_best.ckpt
+    save_path : ./results/FC_Siam_diff/x2view/
+  model:
+    CONNECTED: True
+    CONNECTED_Temporal: T1T2
+    type: CDEncoderDecoder
+    output_channels: 5
+    backbone : 
+      type: FCSiamEncoder
+      in_channels: 3
+      base_channel: 16
+    decode_head : 
+      type: FCSiamDecoder
+      base_channel: 16
+      mode : diff
+    feature_interaction: 
+      type: normal
+      policy: diff
+      out_indices: [0,1,2,3,4]
+    prediction_head:
+
+  losses: 
+        loss_cls: 
+              type: CrossEntropyLoss
+  # scheduler: 
+  #       type : CosineDecayLR
+  #       min_lr: 0.01
+  #       max_lr:  0.1
+  #       decay_steps: 4
+  optimizer:  
+        type: Adam
+        lr: 0.001
+        momentum: 0.9
+        weight_decay: 0.0005
+
+  
+      
+        

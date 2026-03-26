@@ -1,0 +1,4 @@
+  dataset:
+      type: S2LookingDataset
+      rootdir: /media/lscsc/nas/xianping/ZXK/CDDemo/CDFramework/data/s2looking
+      img_folder_names: [image1,image2,label1,label2]

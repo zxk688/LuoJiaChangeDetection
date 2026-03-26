@@ -1,0 +1,7 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: ./data/GVLM-CD256-splitted
+      img_folder_names: [im1,im2,label]
+        # - A
+        # - B
+        # - label

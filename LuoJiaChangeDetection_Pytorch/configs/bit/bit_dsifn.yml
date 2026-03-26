@@ -1,0 +1,44 @@
+  _BASE_CONFIG_ : ./configs/base/dsifn.yml
+  mode : train
+  device : cuda:0
+  type : BinaryChangeDetectionFramework
+  model_name: BiT
+  logfilepath: logs/bit_dsifn/bit_dsifn.log
+  train:
+    epochs : 100
+    batch_size : 16
+    snapshots_dir : ./checkpoints/
+    save_intervals : 1
+  eval :
+    batch_size : 16
+  test:
+    batch_size : 16
+    checkpoint : checkpoints/BiT/100.pth
+    save_path : ./results/BiT/landslide/
+  model:
+    CONNECTED: False
+    type: CDEncoderDecoder
+    output_channels: 1
+    backbone : 
+      type: ResNetEncoder
+    decode_head : 
+      type: BITTrans
+    feature_interaction: 
+    prediction_head:
+      type: FCNHead
+      in_channels: 32
+      output_channels: 1
+  losses: 
+          loss_cls: 
+              type: BinaryCrossEntropyLoss
+  scheduler: 
+          type : ReduceLROnPlateau
+          optimizer:  
+                type: Adam
+                lr: 0.001
+                filter_params: True
+                params_rules: {}
+
+  
+      
+        

@@ -1,0 +1,7 @@
+  dataset:
+      type: FolderSplittedDataset
+      rootdir: ./data/whu_building_data
+      img_folder_names: 
+        - A
+        - B
+        - label
