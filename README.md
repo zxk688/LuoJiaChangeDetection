@@ -8,7 +8,7 @@ We are happy to announce that we are going to release a **unified model zoo** fo
 - **Modular and Extensible**  
   The framework is designed with modular components, making it easy to extend and integrate new models or datasets.  
 
-- **Lightweight, No Third-Party Toolbox Dependency**  
+- <span style="color:#1f77b4;">**Lightweight, No Third-Party Toolbox Dependency**</span>
   Unlike existing solutions that rely on toolboxes such as *mmsegmentation*, our model zoo is implemented in a clean and lightweight way, with no heavy external dependencies. Please refer to *requirements.txt*.
 
 - **Multi-Backend Support**  
