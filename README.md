@@ -113,6 +113,6 @@ Please contact Dr. Xiaokang Zhang (zhangxiaokang@whu.edu.cn) if you have any que
 ## 🙏 Acknowledgement
 This project benefits from numerous prior works and publicly available datasets. We sincerely thank the open-source community for their valuable contributions to remote sensing change detection research. 
 
-==This research was financially supported by the Open Research Fund from Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ), under Grant No. GML-KF-24-28.==
+> This research was financially supported by the Open Research Fund from Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ), under Grant No. GML-KF-24-28.
 
 
