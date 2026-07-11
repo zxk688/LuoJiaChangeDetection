@@ -106,7 +106,7 @@ Our framework supports a wide range of public change detection benchmarks:
 ---
 
 ## 🌐 Contact
-This project is developed by Wuhan University and the Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ).
+> This project is developed by Wuhan University and the Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ).
 
 Please contact Dr. Xiaokang Zhang (zhangxiaokang@whu.edu.cn) if you have any questions.
 
